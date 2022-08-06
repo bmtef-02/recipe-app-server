@@ -3,10 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const recipesRouter = require('./routes/recipes');
+
+const url = process.env.MONGO_URL;
+const connect = mongoose.connect(url);
+
+// handle promise returned from connect method
+connect.then(() => console.log('Connected to MongoDB'), 
+    err => console.log(err)
+);
 
 var app = express();
 
