@@ -12,10 +12,7 @@ recipesRouter.route('/')
         res.setHeader('Content-Type', 'application/json');
         res.json(recipes);
     })
-.catch(err => {
-        console.log(`maintenance mode`)
-        next(err)
-    }); 
+    .catch(err => next(err)); 
 })
 .post(cors.corsWithOptions, (req, res) => {
     Recipe.create(req.body)
