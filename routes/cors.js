@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-const whitelist = ['http://localhost:3000','http://localhost:3001', 'https://bmtef-02-recipe-app.netlify.app/'];
+const whitelist = ['http://localhost:3000','http://localhost:3001', 'https://bmtef-02-recipe-app.netlify.app'];
 const corsOptionsDelegate = (req, callback) => {
     let corsOptions;
     console.log(req.header('Origin'));
